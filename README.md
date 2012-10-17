@@ -1,6 +1,6 @@
 # BackboneFormHelper
 
-This gem provide form helper based on Rails principle like 'f.text_field
+This Rails gem provide javascript form helper based on Rails principle like 'f.text_field
 :name'. For each helper exist template so you can create your own
 template for each of them (eg. /templates/text_field). Now are templates
 created in Twitter bootstrap style.
@@ -8,6 +8,11 @@ created in Twitter bootstrap style.
 **This is still alpha.**
 
 ## Installation
+
+External dependencies:
+
+* underscore.js
+* coffee-rails for assets (now js are written in .coffee)
 
 Add this line to your application's Gemfile:
 
@@ -20,6 +25,13 @@ And then execute:
 Or install it yourself as:
 
     $ gem install backbone_form_helper
+
+
+Add this line into your application.js:
+
+```js
+//= require form_helper/form_helper
+```
 
 ## Helper list
 For now:
