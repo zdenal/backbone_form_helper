@@ -1,6 +1,11 @@
 # BackboneFormHelper
 
-TODO: Write a gem description
+This gem provide form helper based on Rails principle like 'f.text_file
+:name'. For each helper exist template so you can create your own
+template for each of them (eg. /templates/text_field). Now are templates
+created in Twitter bootstrap style.
+
+This is still alpha.
 
 ## Installation
 
@@ -16,9 +21,38 @@ Or install it yourself as:
 
     $ gem install backbone_form_helper
 
+## Helper list
+For now:
+
+* label
+* text_field
+* text_area
+* select
+* select_tag
+* check_box
+* date_field
+
 ## Usage
 
-TODO: Write usage instructions here
+    <% form = new FormHelper @task %>
+    <%- form.check_box 'is_done', title: 'Is done' %>
+    <%- form.date_field 'date', class: 'text_field', placeholder: 'datum' %>
+    <%- form.text_area 'description', placeholder: 'ukol' %>
+    <%- form.select 'group_id', values: _.map(@groups, (g) -> [g.get('_id'), g.get('name')]) %>
+    <%- form.select 'user_id', values: _.map(@users, (g) -> [g.get('_id'), g.get('name')]) %>
+        
+
+Value and errors are taken from model automaticly how Rails do it and shown in template (eg. text_field template):
+    <input type="text" id="<%= @field_id %>" <%- @unfold_options %>
+      name="<%= @field_name %>" value="<%= @value %>" />
+    <span class="help-inline">
+      <%= @errors if @errors %>
+    </span>
+so after render it looks like:
+    <input type="text" id="task_description" placeholder="ukol" class="error" name="task[description]" value="">
+    <span class="help-inline">
+      can't be blank
+    </span>
 
 ## Contributing
 
