@@ -6,7 +6,8 @@ Gem::Specification.new do |gem|
   gem.email         = ["nevralaz@gmail.com"]
   gem.description   = %q{Form helper for backbone based on Rails priciple -> f.text_field :name}
   gem.summary       = %q{Backbone form helper}
-  gem.homepage      = ""
+  gem.homepage      = "http://github.com/zdenal/backbone_form_helper.git"
+  gem.rubyforge_project = "backbone_form_helper"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
