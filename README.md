@@ -1,6 +1,6 @@
 # BackboneFormHelper
 
-This gem provide form helper based on Rails principle like 'f.text_file
+This gem provide form helper based on Rails principle like 'f.text_field
 :name'. For each helper exist template so you can create your own
 template for each of them (eg. /templates/text_field). Now are templates
 created in Twitter bootstrap style.
