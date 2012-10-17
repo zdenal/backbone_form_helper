@@ -33,6 +33,12 @@ Add this line into your application.js:
 //= require form_helper/form_helper
 ```
 
+Add this line into your application.scss:
+
+```scss
+@import 'form_helper/form_helper';
+```
+
 ## Helper list
 For now:
 
