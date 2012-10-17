@@ -5,7 +5,7 @@ This gem provide form helper based on Rails principle like 'f.text_file
 template for each of them (eg. /templates/text_field). Now are templates
 created in Twitter bootstrap style.
 
-This is still alpha.
+**This is still alpha.**
 
 ## Installation
 
@@ -49,7 +49,7 @@ Value and errors are taken from model automaticly how Rails do it and shown in t
     <%= @errors if @errors %>
     </span>
 
-so after render when model has error on name (model.errors['name'] or model.get('errors')['name'])it looks like:
+so after render when model has error on name (model.errors['name'] or model.get('errors')['name']) it looks like:
 
     <input type="text" id="task_name" placeholder="ukol" class="error" name="task[name]" value="">
     <span class="help-inline">
