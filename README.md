@@ -43,16 +43,15 @@ For now:
         
 
 Value and errors are taken from model automaticly how Rails do it and shown in template (eg. text_field template):
-    <input type="text" id="<%= @field_id %>" <%- @unfold_options %>
-      name="<%= @field_name %>" value="<%= @value %>" />
+    `<input type="text" id="<%= @field_id %>" <%- @unfold_options %> name="<%= @field_name %>" value="<%= @value %>" />
     <span class="help-inline">
       <%= @errors if @errors %>
-    </span>
+    </span>`
 so after render it looks like:
-    <input type="text" id="task_description" placeholder="ukol" class="error" name="task[description]" value="">
+    `<input type="text" id="task_description" placeholder="ukol" class="error" name="task[description]" value="">
     <span class="help-inline">
       can't be blank
-    </span>
+    </span>`
 
 ## Contributing
 
