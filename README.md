@@ -50,7 +50,7 @@ For now:
 #### label(method, text=optional, {html_options=optional})
 Return tag of label. If model has error on this method class 'error' will be added.
 
-```
+```rhtml
 f.label 'name'
 # => <label for="task_name">Name</label>
 f.label :name, 'Title'
