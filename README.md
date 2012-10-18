@@ -122,27 +122,32 @@ f.date_field 'date', class: 'text_field', placeholder: 'date'
 
 ## Usage
 
-    <% form = new FormHelper @task %>
-    <%- form.check_box 'is_done', title: 'Is done' %>
-    <%- form.date_field 'date', class: 'text_field', placeholder: 'datum' %>
-    <%- form.text_area 'description', placeholder: 'ukol' %>
-    <%- form.select 'group_id', values: _.map(@groups, (g) -> [g.get('_id'), g.get('name')]) %>
-    <%- form.select 'user_id', values: _.map(@users, (g) -> [g.get('_id'), g.get('name')]) %>
-        
+```rhtml
+<% form = new FormHelper @task %>
+<%- form.check_box 'is_done', title: 'Is done' %>
+<%- form.date_field 'date', class: 'text_field', placeholder: 'datum' %>
+<%- form.text_area 'description', placeholder: 'ukol' %>
+<%- form.select 'group_id', values: _.map(@groups, (g) -> [g.get('_id'), g.get('name')]) %>
+<%- form.select 'user_id', values: _.map(@users, (g) -> [g.get('_id'), g.get('name')]) %>
+````        
 
 Value and errors are taken from model automaticly how Rails do it and shown in template (eg. text_field template):
 
-    <input type="text" id="<%= @field_id %>" <%- @unfold_options %> name="<%= @field_name %>" value="<%= @value %>" />
-    <span class="help-inline">
-    <%= @errors if @errors %>
-    </span>
+```rhtml
+<input type="text" id="<%= @field_id %>" <%- @unfold_options %> name="<%= @field_name %>" value="<%= @value %>" />
+<span class="help-inline">
+<%= @errors if @errors %>
+</span>
+```
 
 so after render when model has error on name (model.errors['name'] or model.get('errors')['name']) it looks like:
 
-    <input type="text" id="task_name" placeholder="ukol" class="error" name="task[name]" value="">
-    <span class="help-inline">
-    can't be blank
-    </span>
+```rhtml
+<input type="text" id="task_name" placeholder="ukol" class="error" name="task[name]" value="">
+<span class="help-inline">
+can't be blank
+</span>
+```
 
 ## Contributing
 
