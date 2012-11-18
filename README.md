@@ -13,6 +13,7 @@ created in Twitter bootstrap style.
 External dependencies:
 
 * underscore.js
+* sass-rails
 * coffee-rails for assets (now js are written in .coffee)
 
 Add this line to your application's Gemfile:
@@ -27,6 +28,13 @@ Or install it yourself as:
 
     $ gem install backbone_form_helper
 
+Run this from command line:
+  
+    $ rails g backbone_form_helper:copy
+
+This will copy scss/css and coffee script files into your
+vendor/assets/javascripts(stylesheets) directory. If you set as argument
+different destination, it will be copied there (eg. 'app/assets/').
 
 Add this line into your application.js:
 
@@ -39,6 +47,8 @@ Add this line into your application.scss:
 ```scss
 @import 'form_helper/form_helper';
 ```
+
+Templates for fields are in directory 'javascripts/form_helper/templates' so you can change them by your needs. They are in eco templates.
 
 ## Helper list
 For now:
