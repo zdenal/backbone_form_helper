@@ -13,7 +13,7 @@ class @FormHelper
     if @options? and @options['name']?
       @name = @options['name']
     else
-      @name = @model.constructor.name.toLowerCase()
+      @name = @model.name.toLowerCase()
 
   label: (attr, title, html_options={}) ->
     if _.isObject(title) or !title?
