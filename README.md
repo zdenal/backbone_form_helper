@@ -130,6 +130,17 @@ f.check_box 'is_done', {title: 'Tick this for done'}
   Tick this for done
 </label>
 ```
+
+### check_box_collection(method, options, html_options={optional})
+
+```rhtml
+f.check_box_collection "answer", { values: _.map(answers, (answer) -> [answer.toLowerCase(), answer]), checked: checked_answers }, { class: "form-control" }
+# =><input class="form-control" type="checkbox" name="reply[answer]" checked value="car">
+  Car
+  <input class="form-control" type="checkbox" name="reply[answer]" value="notebook">
+  Notebook
+```
+
 ### date_field
 Return bootstrap-datepicker date field (see on [http://www.eyecon.ro/bootstrap-datepicker](http://))
 
