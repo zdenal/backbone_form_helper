@@ -141,6 +141,16 @@ f.check_box_collection "answer", { values: _.map(answers, (answer) -> [answer.to
   Notebook
 ```
 
+### radio_buttons(method, options, html_options={optional})
+
+```rhtml
+f.radio_buttons "answer", { values: _.map(answers, (answer) -> [answer.toLowerCase(), answer]), { class: "form-control" }
+# =><input class="form-control" type="radio" name="reply[answer]" checked value="yes">
+  Yes
+  <input class="form-control" type="radio" name="reply[answer]" value="no">
+  No
+```
+
 ### date_field
 Return bootstrap-datepicker date field (see on [http://www.eyecon.ro/bootstrap-datepicker](http://))
 

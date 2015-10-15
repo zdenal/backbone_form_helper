@@ -6,6 +6,7 @@
 #= require './templates/text_area'
 #= require './templates/check_box'
 #= require './templates/check_box_collection'
+#= require './templates/radio_buttons'
 
 class @FormHelper
 
@@ -43,6 +44,11 @@ class @FormHelper
     attrs.values = options.values
     attrs.checked ||= options.checked
     JST['form_helper/templates/check_box_collection'] attrs
+
+  radio_buttons: (attr, options, html_options={}) ->
+    attrs = @basics4attr(attr, null, html_options)
+    attrs.values = options.values
+    JST['form_helper/templates/radio_buttons'] attrs
 
   date_field: (attr, html_options={}) ->
     JST['form_helper/templates/date_field'] @basics4attr(attr, value?, html_options)
