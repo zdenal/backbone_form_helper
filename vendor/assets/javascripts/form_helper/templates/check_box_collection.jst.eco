@@ -1,0 +1,3 @@
+<% for value in @values: %>
+  <input <%- @unfold_options %> type="checkbox" name="<%= @field_name %>" <%= "checked" if @checked.indexOf(value[0]) != -1 %> value="<%= value[0] %>"><%= value[1] %></input>
+<% end %>

@@ -29,7 +29,7 @@ Or install it yourself as:
     $ gem install backbone_form_helper
 
 Run this from command line:
-  
+
     $ rails g backbone_form_helper:copy
 
 This will copy scss/css and coffee script files into your
@@ -48,12 +48,19 @@ Add this line into your application.scss:
 @import 'form_helper/form_helper';
 ```
 
+Add class name property to your models:
+
+```js
+class App.Models.SomeModel extends Backbone.Model
+  name: "SomeModel"
+```
+
 Templates for fields are in directory 'javascripts/form_helper/templates' so you can change them by your needs. They are in eco templates.
 
 ## Helper list
 For now:
 
-### new FormHelper(model, options=optional)  
+### new FormHelper(model, options=optional)
 `f = new FormHelper @task` -> take prefix for fields name from class name of model. If task is instance of class Task, then **'f.text_field :name'** will generate name **task[name]**
 
 `f = new FormHelper @task, {name: 'issue'}` -> **'f.text_field :name'** will generate **issue[name]**
@@ -123,6 +130,27 @@ f.check_box 'is_done', {title: 'Tick this for done'}
   Tick this for done
 </label>
 ```
+
+### check_box_collection(method, options, html_options={optional})
+
+```rhtml
+f.check_box_collection "answer", { values: _.map(answers, (answer) -> [answer.toLowerCase(), answer]), checked: checked_answers }, { class: "form-control" }
+# =><input class="form-control" type="checkbox" name="reply[answer]" checked value="car">
+  Car
+  <input class="form-control" type="checkbox" name="reply[answer]" value="notebook">
+  Notebook
+```
+
+### radio_buttons(method, options, html_options={optional})
+
+```rhtml
+f.radio_buttons "answer", { values: _.map(answers, (answer) -> [answer.toLowerCase(), answer]) }, { class: "form-control" }
+# =><input class="form-control" type="radio" name="reply[answer]" checked value="yes">
+  Yes
+  <input class="form-control" type="radio" name="reply[answer]" value="no">
+  No
+```
+
 ### date_field
 Return bootstrap-datepicker date field (see on [http://www.eyecon.ro/bootstrap-datepicker](http://))
 
@@ -139,7 +167,7 @@ f.date_field 'date', class: 'text_field', placeholder: 'date'
 <%- form.text_area 'description', placeholder: 'ukol' %>
 <%- form.select 'group_id', values: _.map(@groups, (g) -> [g.get('_id'), g.get('name')]) %>
 <%- form.select 'user_id', values: _.map(@users, (g) -> [g.get('_id'), g.get('name')]) %>
-````        
+````
 
 Value and errors are taken from model automaticly how Rails do it and shown in template (eg. text_field template):
 

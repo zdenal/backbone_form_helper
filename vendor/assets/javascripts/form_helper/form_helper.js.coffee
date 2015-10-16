@@ -5,6 +5,8 @@
 #= require './templates/date_field'
 #= require './templates/text_area'
 #= require './templates/check_box'
+#= require './templates/check_box_collection'
+#= require './templates/radio_buttons'
 
 class @FormHelper
 
@@ -12,7 +14,7 @@ class @FormHelper
     if @options? and @options['name']?
       @name = @options['name']
     else
-      @name = @model.constructor.name.toLowerCase()
+      @name = @model.name.toLowerCase()
 
   label: (attr, title, html_options={}) ->
     if _.isObject(title) or !title?
@@ -36,6 +38,17 @@ class @FormHelper
     attrs = @basics4attr(attr, value, html_options)
     attrs.title = title
     JST['form_helper/templates/check_box'] attrs
+
+  check_box_collection: (attr, options, html_options={}) ->
+    attrs = @basics4attr(attr, null, html_options)
+    attrs.values = options.values
+    attrs.checked ||= options.checked
+    JST['form_helper/templates/check_box_collection'] attrs
+
+  radio_buttons: (attr, options, html_options={}) ->
+    attrs = @basics4attr(attr, null, html_options)
+    attrs.values = options.values
+    JST['form_helper/templates/radio_buttons'] attrs
 
   date_field: (attr, html_options={}) ->
     JST['form_helper/templates/date_field'] @basics4attr(attr, value?, html_options)
