@@ -41,7 +41,7 @@ class @FormHelper
     JST['form_helper/templates/date_field'] @basics4attr(attr, value?, html_options)
 
   select: (attr, options, html_options={}) ->
-    attrs = @basics4attr(attr, html_options)
+    attrs = @basics4attr(attr, null, html_options)
     attrs.values = options.values
     attrs.value ||= options.selected
     JST['form_helper/templates/select'] attrs
